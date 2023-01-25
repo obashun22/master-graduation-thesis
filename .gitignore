@@ -2,3 +2,4 @@
 .DS_Store
 latex/
 build
+node_modules/

@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "lint": "cd .. && act --container-architecture linux/amd64",
+    "lint-remote": "textlint ../**/*.tex",
+    "fix": "textlint ../*.md --fix",
+    "no_fix": "textlint ../*.md"
+  },
+  "devDependencies": {
+    "textlint": "^12.4.0",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-plugin-latex2e": "^1.2.0",
+    "textlint-rule-preset-ja-engineering-paper": "^1.0.4",
+    "textlint-rule-preset-ja-spacing": "^2.2.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-preset-japanese": "^7.0.0"
+  }
+}

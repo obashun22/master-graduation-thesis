@@ -1,0 +1,12 @@
+# prh Document
+# https://github.com/prh/prh
+
+rules:
+  - expected: ．
+    pattern: /[。｡]/g
+  - expected: ，
+    pattern: /[、､]/g
+  # - expected: 頂点
+  #   pattern: ノード
+  # - expected: 辺
+  #   pattern: エッジ
