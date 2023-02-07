@@ -1,5 +1,7 @@
 *.pdf
 .DS_Store
 latex/
-build
+build/*
 node_modules/
+
+!abst.pdf
