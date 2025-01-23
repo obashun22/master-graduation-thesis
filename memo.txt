@@ -140,5 +140,50 @@ Rowcusはアプリにした時点で優っているのでSmartAISとの比較に
 
 
 
-システムの評価
-- 
+@startuml
+title 主要処理シーケンス
+
+actor クルー as crew
+participant "専用アプリ" as app
+participant "サーバー" as server
+database "DB" as db
+
+== アプリ起動 ==
+crew -> app: アプリ起動
+app -> server: 水域マップ情報要求
+server -> db: 水域マップ情報取得
+db -> server: 水域マップ情報送信
+server -> app: 水域マップ情報送信
+app -> crew: 水域情報画面
+
+== 水域マップ編集 ==
+crew -> app: 水域マップの編集開始
+app -> crew: 水域マップ編集画面
+crew -> app: 障害物領域の登録・削除
+app -> server: 水域マップ情報送信
+server -> db: 水域マップ情報保存
+
+== ナビゲーション開始 ==
+crew -> app: ナビゲーション開始
+app -> crew: 艇情報入力画面表示
+crew -> app: 艇種・シート位置入力
+activate server
+
+== 航行中の艇情報共有 ==
+loop 定期的な情報更新
+    app -> app: センサーデータ取得
+    app -> server: 艇情報送信
+    server -> db: 艇情報保存
+    app -> server: 他艇情報要求
+    server -> db: 他艇情報取得
+    db -> server: 他艇情報送信
+    server -> app: 他艇情報送信
+    app -> app: 警告の有無判定
+end
+
+== 警告時 ==
+alt 警告有り
+    app -> crew: 警告音再生
+end
+
+@enduml
