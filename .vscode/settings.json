@@ -129,7 +129,7 @@
     "*.dvi",
     "*.synctex.gz"
   ],
-  "cSpell.ignoreWords": ["Firestore", "Ichimill", "Rowcus"]
+  "cSpell.ignoreWords": ["Firestore", "GNSS", "Ichimill", "Rowcus"]
   // ファイルサイズが大きいなら自動保存を無効にする
   // "latex-workshop.latex.autoBuild.run": "never",
 }
